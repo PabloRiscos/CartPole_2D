@@ -1,0 +1,27 @@
+
+import gym 
+import random 
+
+enviroment=gym.make("CartPole-v1")
+
+def Random_games():
+
+    for episode in range(10):
+        
+        enviroment.reset()
+        
+        for t in range(500):
+            
+            enviroment.render()
+
+            action=enviroment.action_space.sample()
+
+            next_state,reward,done,info=enviroment.step(action)
+
+            print(t,next_state,reward,done,info,action)
+            if done: break
+
+
+
+if __name__== "__main__":
+    Random_games()
